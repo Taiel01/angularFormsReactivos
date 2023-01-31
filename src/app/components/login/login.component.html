@@ -1,0 +1,17 @@
+<form class="divInputs" [formGroup]="formularioLogin" (ngSubmit)="submit()">
+    <div>
+        <input formControlName="correo" class="input" type="email" placeholder="e-mail">
+        <p class="campoValido" *ngIf="formularioLogin.controls['correo'].valid">Campo correcto</p>
+        <p class="campoInvalido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['correo'].errors?.['pattern']">Este campo tiene un formato incorrecto</p>
+        <p class="campoInvalido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['correo'].errors?.['required']">Este campo no puede estar vacio</p>
+    </div>
+
+    <div>  
+        <input formControlName="password" class="input" type="password" placeholder="Password">
+        <p class="campoValido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['password'].valid">Campo correcto</p>
+        <p class="campoInvalido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['password'].errors?.['required']">Este campo no puede estar vacio</p>
+        <p class="campoInvalido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['password'].errors?.['minlength']">Este campo debe tener mas de 6 caracteres</p>
+    </div>
+    
+    <button class="inputBtn" [disabled]="formularioLogin.invalid">Submit</button>
+</form>
